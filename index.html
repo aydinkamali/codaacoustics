@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stratum Acoustics — Premium Fibreglass Acoustic Panels</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F5F2EC;
+      --warm-white: #FAFAF7;
+      --charcoal: #1A1A18;
+      --mid: #5A5A55;
+      --light: #A8A89E;
+      --accent: #C8A96E;
+      --accent-dark: #9E7D45;
+      --border: rgba(26,26,24,0.1);
+      --border-strong: rgba(26,26,24,0.2);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4rem;
+      height: 72px;
+      background: rgba(250,250,247,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow 0.3s;
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--charcoal);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+
+    .nav-cta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 0.65rem 1.4rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent-dark); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 72px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 4rem 6rem 4rem;
+      position: relative;
+    }
+
+    .hero-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+      color: var(--charcoal);
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-dark);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--mid);
+      max-width: 380px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 1rem 2.2rem;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+
+    .btn-ghost {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mid);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-strong);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--charcoal); border-color: var(--charcoal); }
+
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .hero-right::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 60%, rgba(200,169,110,0.12));
+      pointer-events: none;
+    }
+
+    .hero-image-grid {
+      display: grid;
+      grid-template-rows: 60% 40%;
+      height: 100%;
+    }
+
+    .hero-img-main {
+      background: #2C2C28;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px),
+        repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(255,255,255,0.015) 40px, rgba(255,255,255,0.015) 41px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Acoustic panel art */
+    .panel-art {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      gap: 6px;
+      width: 300px;
+      height: 220px;
+      transform: perspective(600px) rotateY(-8deg) rotateX(3deg);
+      transition: transform 0.5s ease;
+    }
+    .hero-right:hover .panel-art {
+      transform: perspective(600px) rotateY(-4deg) rotateX(1deg);
+    }
+    .panel-tile {
+      background: #E8E0D0;
+      border-radius: 2px;
+      position: relative;
+      overflow: hidden;
+    }
+    .panel-tile::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+    }
+    .panel-tile:nth-child(3n) { background: #D4CCC0; }
+    .panel-tile:nth-child(5n) { background: #C8C0B0; }
+
+    .hero-img-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .hero-img-sub {
+      background: #3A3A35;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img-sub:first-child { border-right: 1px solid rgba(255,255,255,0.06); }
+
+    .sub-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+    }
+
+    /* Waveform SVG decorations */
+    .waveform {
+      opacity: 0.15;
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      background: var(--charcoal);
+      color: var(--cream);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .stat-item {
+      padding: 2rem 2.5rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+      position: relative;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── SECTION GLOBALS ── */
+    section { padding: 7rem 4rem; }
+
+    .section-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--accent);
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── PRODUCT SECTION ── */
+    .products { background: var(--cream); }
+
+    .products-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 4rem;
+    }
+
+    .products-intro { max-width: 460px; color: var(--mid); line-height: 1.8; }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+    }
+
+    .product-card {
+      background: var(--warm-white);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .product-card:hover { background: var(--charcoal); }
+    .product-card:hover .product-name,
+    .product-card:hover .product-dims,
+    .product-card:hover .product-desc { color: var(--cream); }
+    .product-card:hover .product-price { color: var(--accent); }
+    .product-card:hover .product-badge { background: var(--accent); color: var(--charcoal); }
+    .product-card:hover .add-btn { background: var(--accent); color: var(--charcoal); }
+
+    .product-visual {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--cream);
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-card:hover .product-visual { background: rgba(255,255,255,0.05); }
+
+    /* Panel scale visualisation */
+    .panel-visual-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .panel-rect {
+      background: linear-gradient(135deg, #D8D0C4, #C0B8AC);
+      border: 1px solid rgba(0,0,0,0.08);
+      box-shadow: 4px 4px 16px rgba(0,0,0,0.1), inset 0 0 0 1px rgba(255,255,255,0.4);
+      position: relative;
+    }
+    .panel-rect::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      background: repeating-linear-gradient(0deg, transparent, transparent 6px, rgba(0,0,0,0.03) 6px, rgba(0,0,0,0.03) 7px);
+    }
+    .panel-dim-label {
+      position: absolute;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+      color: var(--light);
+    }
+
+    .product-badge {
+      display: inline-block;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: #F0EBE0;
+      color: var(--mid);
+      padding: 0.3rem 0.7rem;
+      margin-bottom: 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .product-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      transition: color 0.3s;
+    }
+
+    .product-dims {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      margin-bottom: 1rem;
+      transition: color 0.3s;
+    }
+
+    .product-desc {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      transition: color 0.3s;
+    }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .product-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      transition: color 0.3s;
+    }
+    .product-price small {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      color: var(--light);
+      letter-spacing: 0.08em;
+      margin-left: 0.3rem;
+    }
+
+    .add-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none;
+      padding: 0.7rem 1.2rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    /* ── BULK PROMO BANNER ── */
+    .promo-banner {
+      background: var(--charcoal);
+      padding: 3rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    .promo-left { display: flex; align-items: center; gap: 2rem; }
+    .promo-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .promo-text h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+    .promo-text p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.4);
+    }
+    .promo-tiers {
+      display: flex;
+      gap: 2px;
+    }
+    .promo-tier {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 1rem 1.5rem;
+      text-align: center;
+      min-width: 110px;
+    }
+    .promo-tier-qty {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .promo-tier-disc {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--accent);
+      font-weight: 300;
+    }
+
+    /* ── HOW THEY'RE USED (Gallery) ── */
+    .gallery { background: var(--warm-white); }
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3rem;
+    }
+    .gallery-sub { max-width: 400px; color: var(--mid); line-height: 1.8; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      grid-template-rows: 300px 220px;
+      gap: 3px;
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      background: var(--cream);
+    }
+    .gallery-item.large { grid-row: 1 / 3; }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+
+    /* Room placeholders with personality */
+    .room-bg-1 { background: linear-gradient(160deg, #2A2825 0%, #3C3830 100%); }
+    .room-bg-2 { background: linear-gradient(160deg, #303535 0%, #252C2C 100%); }
+    .room-bg-3 { background: linear-gradient(160deg, #322B25 0%, #28231E 100%); }
+    .room-bg-4 { background: linear-gradient(160deg, #282830 0%, #202028 100%); }
+    .room-bg-5 { background: linear-gradient(160deg, #2C2C28 0%, #242420 100%); }
+
+    .room-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* Simple room illustrations using CSS */
+    .room-illustration { position: relative; width: 100%; height: 100%; }
+
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26,26,24,0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .gallery-overlay h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+    .gallery-overlay p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+    }
+
+    /* ── HOW IT WORKS ── */
+    .how-it-works { background: var(--cream); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3px;
+      margin-top: 4rem;
+      background: var(--border);
+    }
+    .step {
+      background: var(--cream);
+      padding: 2.5rem;
+    }
+    .step-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--accent);
+      opacity: 0.5;
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .step h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+    .step p { font-size: 0.875rem; color: var(--mid); line-height: 1.7; }
+
+    /* ── REVIEWS ── */
+    .reviews { background: var(--charcoal); }
+    .reviews .section-eyebrow::before { background: var(--accent); }
+    .reviews .section-title { color: var(--cream); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.06);
+      margin-top: 4rem;
+    }
+
+    .review-card {
+      background: var(--charcoal);
+      padding: 2.5rem;
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .review-stars {
+      display: flex;
+      gap: 3px;
+      margin-bottom: 1.2rem;
+    }
+    .star {
+      width: 10px;
+      height: 10px;
+      background: var(--accent);
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .review-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .review-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      color: var(--charcoal);
+    }
+    .review-name {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.5);
+    }
+    .review-role {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── BLOG ── */
+    .blog { background: var(--warm-white); }
+    .blog-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 3.5rem;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3px;
+      background: var(--border);
+    }
+
+    .blog-card {
+      background: var(--warm-white);
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.3s;
+      cursor: pointer;
+    }
+    .blog-card:hover { background: var(--cream); }
+    .blog-card.featured { padding: 3rem; }
+
+    .blog-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-dark);
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .blog-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+    .blog-card.featured .blog-title { font-size: 1.9rem; }
+
+    .blog-excerpt {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .blog-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      color: var(--light);
+      text-transform: uppercase;
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .blog-sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      background: var(--border);
+    }
+
+    /* ── NEWSLETTER / CTA STRIP ── */
+    .cta-strip {
+      background: var(--accent);
+      padding: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    .cta-strip h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      max-width: 400px;
+    }
+    .cta-strip p {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: rgba(26,26,24,0.6);
+      margin-top: 0.5rem;
+    }
+    .email-form {
+      display: flex;
+      gap: 0;
+    }
+    .email-input {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.875rem;
+      border: none;
+      background: rgba(255,255,255,0.4);
+      padding: 0.9rem 1.5rem;
+      width: 300px;
+      color: var(--charcoal);
+      outline: none;
+    }
+    .email-input::placeholder { color: rgba(26,26,24,0.4); }
+    .email-submit {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none;
+      padding: 0.9rem 1.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .email-submit:hover { background: #000; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 4rem 4rem 2rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 4rem;
+    }
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 300;
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+    .footer-logo span { color: var(--accent); }
+    .footer-tagline {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+    .footer-col h5 {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a {
+      font-size: 0.875rem;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--cream); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.08em;
+      color: rgba(255,255,255,0.25);
+    }
+
+    /* ── CART DRAWER ── */
+    .cart-btn {
+      position: relative;
+      background: none;
+      border: 1px solid var(--border-strong);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .cart-btn:hover { border-color: var(--charcoal); color: var(--charcoal); }
+    .cart-count {
+      background: var(--accent);
+      color: var(--charcoal);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.55rem;
+    }
+
+    .cart-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: 400px;
+      height: 100vh;
+      background: var(--warm-white);
+      border-left: 1px solid var(--border);
+      z-index: 200;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+      display: flex;
+      flex-direction: column;
+    }
+    .cart-drawer.open { transform: translateX(0); }
+
+    .cart-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 199;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .cart-overlay.active { opacity: 1; pointer-events: all; }
+
+    .cart-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .cart-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      font-weight: 400;
+    }
+    .cart-close {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 1.2rem;
+      color: var(--mid);
+    }
+
+    .cart-items { flex: 1; overflow-y: auto; padding: 1.5rem 2rem; }
+
+    .cart-empty {
+      text-align: center;
+      padding: 4rem 2rem;
+      color: var(--light);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+    }
+
+    .cart-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cart-item-info { flex: 1; }
+    .cart-item-name { font-family: 'Cormorant Garamond', serif; font-size: 1rem; margin-bottom: 0.2rem; }
+    .cart-item-dim { font-family: 'DM Mono', monospace; font-size: 0.58rem; color: var(--light); letter-spacing: 0.08em; }
+    .cart-item-price { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--charcoal); margin-top: 0.4rem; }
+    .cart-qty { display: flex; align-items: center; gap: 0.5rem; margin-top: 0.5rem; }
+    .qty-btn { background: var(--cream); border: none; width: 24px; height: 24px; cursor: pointer; font-size: 0.9rem; }
+    .qty-num { font-family: 'DM Mono', monospace; font-size: 0.7rem; width: 24px; text-align: center; }
+    .remove-item { font-family: 'DM Mono', monospace; font-size: 0.55rem; color: var(--light); cursor: pointer; letter-spacing: 0.08em; background: none; border: none; margin-top: 0.3rem; }
+
+    .cart-footer {
+      padding: 1.5rem 2rem;
+      border-top: 1px solid var(--border);
+    }
+    .cart-subtotal {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+    }
+    .cart-subtotal span:first-child {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      color: var(--mid);
+      text-transform: uppercase;
+    }
+    .cart-subtotal span:last-child {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+    }
+    .cart-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      color: var(--light);
+      margin-bottom: 1.2rem;
+    }
+    .checkout-btn {
+      width: 100%;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: var(--charcoal);
+      color: var(--cream);
+      border: none;
+      padding: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .checkout-btn:hover { background: var(--accent-dark); }
+
+    /* ── PREORDER TOAST ── */
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 1rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      z-index: 300;
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+      border-left: 3px solid var(--accent);
+    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      nav { padding: 0 2rem; }
+      .nav-links { display: none; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-right { min-height: 400px; }
+      section { padding: 5rem 2rem; }
+      .product-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gallery-item.large { grid-row: auto; }
+      .steps { grid-template-columns: 1fr 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+      .promo-banner { flex-direction: column; align-items: flex-start; }
+      .cta-strip { flex-direction: column; align-items: flex-start; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-sidebar { flex-direction: row; }
+      .cart-drawer { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#" class="nav-logo">Stratum<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#gallery">Applications</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#blog">Journal</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div style="display:flex;gap:1rem;align-items:center;">
+    <button class="cart-btn" onclick="toggleCart()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Cart <span class="cart-count" id="cart-count">0</span>
+    </button>
+    <a href="#products" class="nav-cta">Pre-Order</a>
+  </div>
+</nav>
+
+<!-- CART DRAWER -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-drawer" id="cart-drawer">
+  <div class="cart-header">
+    <h3>Your Order</h3>
+    <button class="cart-close" onclick="toggleCart()">✕</button>
+  </div>
+  <div class="cart-items" id="cart-items">
+    <div class="cart-empty">YOUR CART IS EMPTY</div>
+  </div>
+  <div class="cart-footer">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <span id="cart-total">$0.00</span>
+    </div>
+    <p class="cart-note">Shipping & taxes calculated at checkout. Pre-orders ship within 4–6 weeks of stock arrival.</p>
+    <button class="checkout-btn" onclick="handleCheckout()">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- HERO -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Premium Acoustic Treatment</p>
+    <h1 class="hero-title">
+      Silence<br>
+      is a<br>
+      <em>material.</em>
+    </h1>
+    <p class="hero-sub">
+      Precision-engineered fibreglass acoustic panels that transform reflective spaces into refined acoustic environments. Designed for studios, offices, and living spaces that demand performance.
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">View Products</a>
+      <a href="#gallery" class="btn-ghost">See Applications</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-grid">
+      <div class="hero-img-main">
+        <!-- Acoustic panel 3D art -->
+        <div style="text-align:center;">
+          <div class="panel-art">
+            <div class="panel-tile"></div><div class="panel-tile"></div>
+            <div class="panel-tile"></div><div class="panel-tile"></div>
+            <div class="panel-tile"></div><div class="panel-tile"></div>
+            <div class="panel-tile"></div><div class="panel-tile"></div>
+            <div class="panel-tile"></div><div class="panel-tile"></div>
+            <div class="panel-tile"></div><div class="panel-tile"></div>
+          </div>
+          <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(255,255,255,0.25);margin-top:1.5rem;text-transform:uppercase;">Fibreglass Core · 25mm</p>
+        </div>
+      </div>
+      <div class="hero-img-bottom">
+        <div class="hero-img-sub room-bg-2">
+          <svg class="waveform" width="80" height="40" viewBox="0 0 80 40">
+            <polyline points="0,20 10,5 20,30 30,8 40,28 50,12 60,25 70,10 80,20" fill="none" stroke="#C8A96E" stroke-width="1.5"/>
+          </svg>
+          <span class="sub-label">Absorption</span>
+        </div>
+        <div class="hero-img-sub room-bg-3">
+          <svg class="waveform" width="80" height="40" viewBox="0 0 80 40">
+            <circle cx="40" cy="20" r="15" fill="none" stroke="#C8A96E" stroke-width="1" stroke-dasharray="3 3"/>
+            <circle cx="40" cy="20" r="8" fill="none" stroke="#C8A96E" stroke-width="1" opacity="0.5"/>
+          </svg>
+          <span class="sub-label">Diffusion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item reveal">
+    <div class="stat-num">NRC 0.95</div>
+    <div class="stat-label">Noise Reduction Coefficient</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-1">
+    <div class="stat-num">25mm</div>
+    <div class="stat-label">Panel Thickness</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-2">
+    <div class="stat-num">3 Sizes</div>
+    <div class="stat-label">Available Formats</div>
+  </div>
+  <div class="stat-item reveal reveal-delay-3">
+    <div class="stat-num">A-Grade</div>
+    <div class="stat-label">Fire Rating</div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-header">
+    <div>
+      <p class="section-eyebrow">Our Range</p>
+      <h2 class="section-title">Acoustic Panels</h2>
+    </div>
+    <p class="products-intro">
+      Each panel is crafted from high-density fibreglass with a breathable fabric face, engineered for maximum sound absorption across the full frequency spectrum.
+    </p>
+  </div>
+
+  <div class="product-grid">
+    <!-- Product 1 -->
+    <div class="product-card reveal">
+      <div class="product-visual">
+        <div class="panel-visual-box">
+          <div class="panel-rect" style="width:130px;height:80px;">
+            <span class="panel-dim-label" style="bottom:-18px;left:0;right:0;text-align:center;">1200 × 600mm</span>
+          </div>
+        </div>
+      </div>
+      <span class="product-badge">Pre-Order · Ships 4–6 Weeks</span>
+      <h3 class="product-name">Standard Panel</h3>
+      <p class="product-dims">1200 × 600 × 25mm · ~2.8kg</p>
+      <p class="product-desc">
+        Our flagship format. Ideal for wall coverage in recording studios, home theatres, and open-plan offices. Maximum absorption surface per unit.
+      </p>
+      <div class="product-footer">
+        <div class="product-price">$89<small>AUD / panel</small></div>
+        <button class="add-btn" onclick="addToCart('Standard Panel','1200×600×25mm', 89)">Pre-Order</button>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product-card reveal reveal-delay-1">
+      <div class="product-visual">
+        <div class="panel-visual-box">
+          <div class="panel-rect" style="width:100px;height:80px;">
+            <span class="panel-dim-label" style="bottom:-18px;left:0;right:0;text-align:center;">900 × 600mm</span>
+          </div>
+        </div>
+      </div>
+      <span class="product-badge">Pre-Order · Ships 4–6 Weeks</span>
+      <h3 class="product-name">Mid Panel</h3>
+      <p class="product-dims">900 × 600 × 25mm · ~2.1kg</p>
+      <p class="product-desc">
+        Versatile and widely used. Perfect for filling gaps, treating first reflection points, and ceiling cloud installations.
+      </p>
+      <div class="product-footer">
+        <div class="product-price">$72<small>AUD / panel</small></div>
+        <button class="add-btn" onclick="addToCart('Mid Panel','900×600×25mm', 72)">Pre-Order</button>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="product-card reveal reveal-delay-2">
+      <div class="product-visual">
+        <div class="panel-visual-box">
+          <div class="panel-rect" style="width:80px;height:80px;">
+            <span class="panel-dim-label" style="bottom:-18px;left:0;right:0;text-align:center;">600 × 600mm</span>
+          </div>
+        </div>
+      </div>
+      <span class="product-badge">Pre-Order · Ships 4–6 Weeks</span>
+      <h3 class="product-name">Square Panel</h3>
+      <p class="product-dims">600 × 600 × 25mm · ~1.4kg</p>
+      <p class="product-desc">
+        Compact and modular. Arrange in grids for a geometric acoustic feature wall, or use individually at reflection points.
+      </p>
+      <div class="product-footer">
+        <div class="product-price">$55<small>AUD / panel</small></div>
+        <button class="add-btn" onclick="addToCart('Square Panel','600×600×25mm', 55)">Pre-Order</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BULK PROMO BANNER -->
+<div class="promo-banner">
+  <div class="promo-left">
+    <div class="promo-icon">%</div>
+    <div class="promo-text">
+      <h3>Bulk Order Discounts</h3>
+      <p>AUTOMATIC DISCOUNT APPLIED AT CHECKOUT · NO CODE REQUIRED</p>
+    </div>
+  </div>
+  <div class="promo-tiers">
+    <div class="promo-tier">
+      <div class="promo-tier-qty">10+ panels</div>
+      <div class="promo-tier-disc">8% off</div>
+    </div>
+    <div class="promo-tier">
+      <div class="promo-tier-qty">25+ panels</div>
+      <div class="promo-tier-disc">15% off</div>
+    </div>
+    <div class="promo-tier">
+      <div class="promo-tier-qty">50+ panels</div>
+      <div class="promo-tier-disc">22% off</div>
+    </div>
+    <div class="promo-tier" style="border-color:rgba(200,169,110,0.3);background:rgba(200,169,110,0.08);">
+      <div class="promo-tier-qty">100+ panels</div>
+      <div class="promo-tier-disc">30% off</div>
+    </div>
+  </div>
+</div>
+
+<!-- GALLERY / APPLICATIONS -->
+<section class="gallery" id="gallery">
+  <div class="gallery-header reveal">
+    <div>
+      <p class="section-eyebrow">Applications</p>
+      <h2 class="section-title">How They're Used</h2>
+    </div>
+    <p class="gallery-sub">
+      From professional recording environments to residential living spaces — Stratum panels perform wherever sound matters.
+    </p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gallery-item large room-bg-1">
+      <div class="gallery-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" opacity="0.2">
+          <rect x="4" y="12" width="40" height="28" rx="1" stroke="white" stroke-width="1.5"/>
+          <rect x="10" y="18" width="8" height="14" rx="1" fill="white" opacity="0.5"/>
+          <rect x="22" y="18" width="8" height="14" rx="1" fill="white" opacity="0.5"/>
+          <rect x="34" y="18" width="6" height="14" rx="1" fill="white" opacity="0.5"/>
+        </svg>
+        <span class="room-label">Recording Studio</span>
+      </div>
+      <div class="gallery-overlay">
+        <h4>Recording Studio</h4>
+        <p>Full Wall Treatment · 24 Panels</p>
+      </div>
+    </div>
+    <div class="gallery-item room-bg-2">
+      <div class="gallery-placeholder">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" opacity="0.2">
+          <rect x="4" y="8" width="24" height="18" rx="1" stroke="white" stroke-width="1.5"/>
+          <path d="M4 14h24" stroke="white" stroke-width="1" opacity="0.5"/>
+        </svg>
+        <span class="room-label">Home Theatre</span>
+      </div>
+      <div class="gallery-overlay">
+        <h4>Home Theatre</h4>
+        <p>Surround Treatment · 12 Panels</p>
+      </div>
+    </div>
+    <div class="gallery-item room-bg-3">
+      <div class="gallery-placeholder">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" opacity="0.2">
+          <circle cx="16" cy="16" r="10" stroke="white" stroke-width="1.5"/>
+          <circle cx="16" cy="16" r="4" fill="white" opacity="0.4"/>
+        </svg>
+        <span class="room-label">Podcast Studio</span>
+      </div>
+      <div class="gallery-overlay">
+        <h4>Podcast Studio</h4>
+        <p>Voice Treatment · 6 Panels</p>
+      </div>
+    </div>
+    <div class="gallery-item room-bg-4">
+      <div class="gallery-placeholder">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" opacity="0.2">
+          <rect x="6" y="6" width="8" height="8" rx="1" fill="white" opacity="0.4"/>
+          <rect x="18" y="6" width="8" height="8" rx="1" fill="white" opacity="0.4"/>
+          <rect x="6" y="18" width="8" height="8" rx="1" fill="white" opacity="0.4"/>
+          <rect x="18" y="18" width="8" height="8" rx="1" fill="white" opacity="0.4"/>
+        </svg>
+        <span class="room-label">Open-Plan Office</span>
+      </div>
+      <div class="gallery-overlay">
+        <h4>Open-Plan Office</h4>
+        <p>Ceiling Clouds · 32 Panels</p>
+      </div>
+    </div>
+    <div class="gallery-item room-bg-5">
+      <div class="gallery-placeholder">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" opacity="0.2">
+          <path d="M4 24 L16 8 L28 24" stroke="white" stroke-width="1.5" fill="none"/>
+          <rect x="12" y="18" width="8" height="6" fill="white" opacity="0.4"/>
+        </svg>
+        <span class="room-label">Living Room</span>
+      </div>
+      <div class="gallery-overlay">
+        <h4>Living Room</h4>
+        <p>Feature Wall · 9 Panels</p>
+      </div>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.12em;color:var(--light);text-align:center;margin-top:2rem;text-transform:uppercase;">
+    ↑ Photography coming soon — these spaces represent real installation configurations
+  </p>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how-it-works" id="about">
+  <p class="section-eyebrow reveal">Process</p>
+  <h2 class="section-title reveal">Simple Installation,<br>Lasting Results</h2>
+  <div class="steps">
+    <div class="step reveal">
+      <div class="step-num">01</div>
+      <h4>Calculate Your Space</h4>
+      <p>Use our room calculator to determine how many panels you need based on your room dimensions and acoustic goals.</p>
+    </div>
+    <div class="step reveal reveal-delay-1">
+      <div class="step-num">02</div>
+      <h4>Place Your Pre-Order</h4>
+      <p>Select your panel sizes and quantities. Your order is confirmed immediately and dispatched once stock arrives in 4–6 weeks.</p>
+    </div>
+    <div class="step reveal reveal-delay-2">
+      <div class="step-num">03</div>
+      <h4>Mount & Position</h4>
+      <p>Panels mount directly to walls with Z-clips or impaling clips. No specialist required — full installation guide included.</p>
+    </div>
+    <div class="step reveal reveal-delay-3">
+      <div class="step-num">04</div>
+      <h4>Hear the Difference</h4>
+      <p>Immediate, audible improvement on first reflection points and bass modes. Most installs complete in under an hour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <p class="section-eyebrow">Customer Reviews</p>
+  <h2 class="section-title">What People Are Saying</h2>
+  <div class="reviews-grid">
+    <div class="review-card reveal">
+      <div class="review-stars">
+        <div class="star"></div><div class="star"></div><div class="star"></div>
+        <div class="star"></div><div class="star"></div>
+      </div>
+      <p class="review-text">"The difference was immediate. My studio used to have a 600ms reverb tail — now it's dead flat. These panels are as good as anything I've used at twice the price."</p>
+      <div class="review-author">
+        <div class="review-avatar">JM</div>
+        <div>
+          <div class="review-name">James M.</div>
+          <div class="review-role">Recording Engineer, Sydney</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal reveal-delay-1">
+      <div class="review-stars">
+        <div class="star"></div><div class="star"></div><div class="star"></div>
+        <div class="star"></div><div class="star"></div>
+      </div>
+      <p class="review-text">"Bought 20 panels for our open-plan office. The speech intelligibility improvement was remarkable — meetings are actually productive now. Fast delivery, excellent quality."</p>
+      <div class="review-author">
+        <div class="review-avatar">SL</div>
+        <div>
+          <div class="review-name">Sarah L.</div>
+          <div class="review-role">Facilities Manager, Melbourne</div>
+        </div>
+      </div>
+    </div>
+    <div class="review-card reveal reveal-delay-2">
+      <div class="review-stars">
+        <div class="star"></div><div class="star"></div><div class="star"></div>
+        <div class="star"></div><div class="star"></div>
+      </div>
+      <p class="review-text">"Used 9 panels in a geometric arrangement on my feature wall. They look incredible and the room sounds completely transformed. Great product, would highly recommend."</p>
+      <div class="review-author">
+        <div class="review-avatar">RK</div>
+        <div>
+          <div class="review-name">Ryan K.</div>
+          <div class="review-role">Architect + Audiophile, Brisbane</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:rgba(255,255,255,0.2);text-align:center;margin-top:2rem;text-transform:uppercase;">
+    ★ Reviews collected from verified purchasers. Additional reviews will be collected from pre-order customers.
+  </p>
+</section>
+
+<!-- BLOG -->
+<section class="blog" id="blog">
+  <div class="blog-header reveal">
+    <div>
+      <p class="section-eyebrow">Journal</p>
+      <h2 class="section-title">Acoustic Knowledge</h2>
+    </div>
+    <a href="#" class="btn-ghost">All Articles →</a>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card featured reveal">
+      <span class="blog-tag">Guide</span>
+      <h3 class="blog-title">How to Calculate the Acoustic Treatment Your Room Actually Needs</h3>
+      <p class="blog-excerpt">
+        Most people either over-treat or under-treat their spaces. This guide walks you through the Sabine equation, first reflection point identification, and how to prioritise panel placement for maximum impact with minimum product.
+      </p>
+      <div class="blog-meta">
+        <span>May 2025</span>
+        <span>8 min read</span>
+        <span>Guide</span>
+      </div>
+    </div>
+    <div class="blog-sidebar">
+      <div class="blog-card reveal">
+        <span class="blog-tag">Material Science</span>
+        <h3 class="blog-title">Fibreglass vs Acoustic Foam: Why the Difference Matters</h3>
+        <div class="blog-meta" style="margin-top:1rem;">
+          <span>April 2025</span>
+          <span>5 min read</span>
+        </div>
+      </div>
+      <div class="blog-card reveal reveal-delay-1">
+        <span class="blog-tag">Installation</span>
+        <h3 class="blog-title">Ceiling Clouds: The Most Underrated Acoustic Treatment</h3>
+        <div class="blog-meta" style="margin-top:1rem;">
+          <span>March 2025</span>
+          <span>4 min read</span>
+        </div>
+      </div>
+      <div class="blog-card reveal reveal-delay-2">
+        <span class="blog-tag">Design</span>
+        <h3 class="blog-title">Acoustic Feature Walls: Sound Control as Interior Design</h3>
+        <div class="blog-meta" style="margin-top:1rem;">
+          <span>February 2025</span>
+          <span>6 min read</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EMAIL CTA -->
+<div class="cta-strip">
+  <div>
+    <h2>Be First When Stock Arrives</h2>
+    <p>PRE-ORDER CUSTOMERS GET PRIORITY DISPATCH + 5% LAUNCH DISCOUNT</p>
+  </div>
+  <div class="email-form">
+    <input type="email" class="email-input" placeholder="your@email.com">
+    <button class="email-submit" onclick="handleEmail(this)">Notify Me</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">Stratum<span>.</span></div>
+      <p class="footer-tagline">Precision fibreglass acoustic panels designed and shipped from Australia. Built for professionals, accessible to all.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#">Standard Panel 1200×600</a></li>
+        <li><a href="#">Mid Panel 900×600</a></li>
+        <li><a href="#">Square Panel 600×600</a></li>
+        <li><a href="#">Bulk Orders</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Journal</a></li>
+        <li><a href="#">Installation Guide</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Sale</a></li>
+        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#">Returns</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Stratum Acoustics Pty Ltd · ABN XX XXX XXX XXX · All rights reserved</span>
+    <span class="footer-copy">Designed & built in Australia</span>
+  </div>
+</footer>
+
+<script>
+  // ── NAV SCROLL ──
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // ── SCROLL REVEAL ──
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // ── CART STATE ──
+  let cart = [];
+
+  function addToCart(name, dims, price) {
+    const existing = cart.find(i => i.name === name);
+    if (existing) { existing.qty++; }
+    else { cart.push({ name, dims, price, qty: 1 }); }
+    updateCart();
+    showToast(`${name} added to pre-order`);
+    toggleCart(true);
+  }
+
+  function updateCart() {
+    const count = cart.reduce((s, i) => s + i.qty, 0);
+    document.getElementById('cart-count').textContent = count;
+
+    const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+    const discountedTotal = applyBulkDiscount(total, count);
+    document.getElementById('cart-total').textContent = `$${discountedTotal.toFixed(2)} AUD`;
+
+    const container = document.getElementById('cart-items');
+    if (cart.length === 0) {
+      container.innerHTML = '<div class="cart-empty">YOUR CART IS EMPTY</div>';
+      return;
+    }
+    container.innerHTML = cart.map((item, idx) => `
+      <div class="cart-item">
+        <div class="cart-item-info">
+          <div class="cart-item-name">${item.name}</div>
+          <div class="cart-item-dim">${item.dims}</div>
+          <div class="cart-item-price">$${(item.price * item.qty).toFixed(2)} AUD</div>
+          <div class="cart-qty">
+            <button class="qty-btn" onclick="changeQty(${idx}, -1)">−</button>
+            <span class="qty-num">${item.qty}</span>
+            <button class="qty-btn" onclick="changeQty(${idx}, 1)">+</button>
+            <button class="remove-item" onclick="removeItem(${idx})">Remove</button>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function applyBulkDiscount(total, qty) {
+    if (qty >= 100) return total * 0.70;
+    if (qty >= 50)  return total * 0.78;
+    if (qty >= 25)  return total * 0.85;
+    if (qty >= 10)  return total * 0.92;
+    return total;
+  }
+
+  function changeQty(idx, delta) {
+    cart[idx].qty += delta;
+    if (cart[idx].qty <= 0) cart.splice(idx, 1);
+    updateCart();
+  }
+
+  function removeItem(idx) {
+    cart.splice(idx, 1);
+    updateCart();
+  }
+
+  function toggleCart(forceOpen) {
+    const drawer = document.getElementById('cart-drawer');
+    const overlay = document.getElementById('cart-overlay');
+    const isOpen = drawer.classList.contains('open');
+    if (forceOpen === true || !isOpen) {
+      drawer.classList.add('open');
+      overlay.classList.add('active');
+    } else {
+      drawer.classList.remove('open');
+      overlay.classList.remove('active');
+    }
+  }
+
+  function handleCheckout() {
+    if (cart.length === 0) { showToast('Your cart is empty'); return; }
+    showToast('Checkout integration coming soon — your pre-order is noted!');
+  }
+
+  function handleEmail(btn) {
+    btn.textContent = 'Subscribed ✓';
+    btn.style.background = '#9E7D45';
+    showToast('You\'re on the list. We\'ll notify you first.');
+  }
+
+  // ── TOAST ──
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+</script>
+</body>
+</html>
