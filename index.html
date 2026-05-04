@@ -8,6 +8,20 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@200;300;400&display=swap" rel="stylesheet">
   <style>
+    @font-face {
+      font-family: 'MiranoExtendedFreebie';
+      src: url('font/MiranoExtendedFreebie-Light.woff2') format('woff2');
+      font-weight: 300;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'MiranoExtendedFreebie';
+      src: url('font/MiranoExtendedFreebie-LightItalic.woff2') format('woff2');
+      font-weight: 300;
+      font-style: italic;
+    }
+  </style>
+  <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
@@ -52,9 +66,9 @@
     nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.06); }
 
     .nav-logo {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'MiranoExtendedFreebie', serif;
       font-size: 1.5rem;
-      font-weight: 400;
+      font-weight: 300;
       letter-spacing: 0.04em;
       color: var(--charcoal);
       text-decoration: none;
@@ -1093,10 +1107,10 @@
 <nav id="main-nav">
   <a href="#" class="nav-logo">CODA<span>.</span></a>
   <ul class="nav-links">
+    <li><a href="#homepage">Homepage</a></li>
     <li><a href="#products">Products</a></li>
-    <li><a href="#gallery">Applications</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#blog">Journal</a></li>
+    <li><a href="#applications">Applications</a></li>
+    <li><a href="#installation">Installation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <div style="display:flex;gap:1rem;align-items:center;">
@@ -1104,7 +1118,7 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
       Cart <span class="cart-count" id="cart-count">0</span>
     </button>
-    <a href="#products" class="nav-cta">Pre-Order</a>
+    <a href="#contact" class="nav-cta">Contact</a>
   </div>
 </nav>
 
@@ -1132,7 +1146,7 @@
 <div class="toast" id="toast"></div>
 
 <!-- HERO -->
-<section class="hero" style="padding:0;">
+<section class="hero" id="homepage" style="padding:0;">
   <div class="hero-left">
     <p class="hero-eyebrow">Premium Acoustic Treatment</p>
     <h1 class="hero-title">
@@ -1145,7 +1159,7 @@
     </p>
     <div class="hero-actions">
       <a href="#products" class="btn-primary">View Products</a>
-      <a href="#gallery" class="btn-ghost">See Applications</a>
+      <a href="#applications" class="btn-ghost">See Applications</a>
     </div>
   </div>
   <div class="hero-right">
@@ -1211,7 +1225,7 @@
       <h2 class="section-title">Acoustic Panels</h2>
     </div>
     <p class="products-intro">
-      Each panel is crafted from high-density fibreglass with a breathable fabric face, engineered for maximum sound absorption across the full frequency spectrum.
+      Each panel is crafted from high-density fibreglass with a breathable fabric face, engineered for maximum sound absorption across the full frequency spectrum. Available in multiple sizes and colours with NRC 0.95 rating. Enquire to find out how we can suit your space.
     </p>
   </div>
 
@@ -1281,37 +1295,9 @@
   </div>
 </section>
 
-<!-- BULK PROMO BANNER -->
-<div class="promo-banner">
-  <div class="promo-left">
-    <div class="promo-icon">%</div>
-    <div class="promo-text">
-      <h3>Bulk Order Discounts</h3>
-      <p>AUTOMATIC DISCOUNT APPLIED AT CHECKOUT · NO CODE REQUIRED</p>
-    </div>
-  </div>
-  <div class="promo-tiers">
-    <div class="promo-tier">
-      <div class="promo-tier-qty">10+ panels</div>
-      <div class="promo-tier-disc">8% off</div>
-    </div>
-    <div class="promo-tier">
-      <div class="promo-tier-qty">25+ panels</div>
-      <div class="promo-tier-disc">15% off</div>
-    </div>
-    <div class="promo-tier">
-      <div class="promo-tier-qty">50+ panels</div>
-      <div class="promo-tier-disc">22% off</div>
-    </div>
-    <div class="promo-tier" style="border-color:rgba(200,169,110,0.3);background:rgba(200,169,110,0.08);">
-      <div class="promo-tier-qty">100+ panels</div>
-      <div class="promo-tier-disc">30% off</div>
-    </div>
-  </div>
-</div>
 
 <!-- GALLERY / APPLICATIONS -->
-<section class="gallery" id="gallery">
+<section class="gallery" id="applications">
   <div class="gallery-header reveal">
     <div>
       <p class="section-eyebrow">Applications</p>
@@ -1398,7 +1384,7 @@
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="how-it-works" id="about">
+<section class="how-it-works" id="installation">
   <p class="section-eyebrow reveal">Process</p>
   <h2 class="section-title reveal">Simple Installation,<br>Lasting Results</h2>
   <div class="steps">
@@ -1425,119 +1411,13 @@
   </div>
 </section>
 
-<!-- REVIEWS -->
-<section class="reviews" id="reviews">
-  <p class="section-eyebrow">Customer Reviews</p>
-  <h2 class="section-title">What People Are Saying</h2>
-  <div class="reviews-grid">
-    <div class="review-card reveal">
-      <div class="review-stars">
-        <div class="star"></div><div class="star"></div><div class="star"></div>
-        <div class="star"></div><div class="star"></div>
-      </div>
-      <p class="review-text">"The difference was immediate. My studio used to have a 600ms reverb tail — now it's dead flat. These panels are as good as anything I've used at twice the price."</p>
-      <div class="review-author">
-        <div class="review-avatar">JM</div>
-        <div>
-          <div class="review-name">James M.</div>
-          <div class="review-role">Recording Engineer, Sydney</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card reveal reveal-delay-1">
-      <div class="review-stars">
-        <div class="star"></div><div class="star"></div><div class="star"></div>
-        <div class="star"></div><div class="star"></div>
-      </div>
-      <p class="review-text">"Bought 20 panels for our open-plan office. The speech intelligibility improvement was remarkable — meetings are actually productive now. Fast delivery, excellent quality."</p>
-      <div class="review-author">
-        <div class="review-avatar">SL</div>
-        <div>
-          <div class="review-name">Sarah L.</div>
-          <div class="review-role">Facilities Manager, Melbourne</div>
-        </div>
-      </div>
-    </div>
-    <div class="review-card reveal reveal-delay-2">
-      <div class="review-stars">
-        <div class="star"></div><div class="star"></div><div class="star"></div>
-        <div class="star"></div><div class="star"></div>
-      </div>
-      <p class="review-text">"Used 9 panels in a geometric arrangement on my feature wall. They look incredible and the room sounds completely transformed. Great product, would highly recommend."</p>
-      <div class="review-author">
-        <div class="review-avatar">RK</div>
-        <div>
-          <div class="review-name">Ryan K.</div>
-          <div class="review-role">Architect + Audiophile, Brisbane</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.1em;color:rgba(255,255,255,0.2);text-align:center;margin-top:2rem;text-transform:uppercase;">
-    ★ Reviews collected from verified purchasers. Additional reviews will be collected from pre-order customers.
-  </p>
-</section>
 
-<!-- BLOG -->
-<section class="blog" id="blog">
-  <div class="blog-header reveal">
-    <div>
-      <p class="section-eyebrow">Journal</p>
-      <h2 class="section-title">Acoustic Knowledge</h2>
-    </div>
-    <a href="#" class="btn-ghost">All Articles →</a>
-  </div>
-  <div class="blog-grid">
-    <div class="blog-card featured reveal">
-      <span class="blog-tag">Guide</span>
-      <h3 class="blog-title">How to Calculate the Acoustic Treatment Your Room Actually Needs</h3>
-      <p class="blog-excerpt">
-        Most people either over-treat or under-treat their spaces. This guide walks you through the Sabine equation, first reflection point identification, and how to prioritise panel placement for maximum impact with minimum product.
-      </p>
-      <div class="blog-meta">
-        <span>May 2025</span>
-        <span>8 min read</span>
-        <span>Guide</span>
-      </div>
-    </div>
-    <div class="blog-sidebar">
-      <div class="blog-card reveal">
-        <span class="blog-tag">Material Science</span>
-        <h3 class="blog-title">Fibreglass vs Acoustic Foam: Why the Difference Matters</h3>
-        <div class="blog-meta" style="margin-top:1rem;">
-          <span>April 2025</span>
-          <span>5 min read</span>
-        </div>
-      </div>
-      <div class="blog-card reveal reveal-delay-1">
-        <span class="blog-tag">Installation</span>
-        <h3 class="blog-title">Ceiling Clouds: The Most Underrated Acoustic Treatment</h3>
-        <div class="blog-meta" style="margin-top:1rem;">
-          <span>March 2025</span>
-          <span>4 min read</span>
-        </div>
-      </div>
-      <div class="blog-card reveal reveal-delay-2">
-        <span class="blog-tag">Design</span>
-        <h3 class="blog-title">Acoustic Feature Walls: Sound Control as Interior Design</h3>
-        <div class="blog-meta" style="margin-top:1rem;">
-          <span>February 2025</span>
-          <span>6 min read</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- EMAIL CTA -->
-<div class="cta-strip">
+<!-- CONTACT -->
+<div class="cta-strip" id="contact">
   <div>
-    <h2>Be the first to know when stock arrives</h2>
-    <p>PRE-ORDER CUSTOMERS GET PRIORITY DISPATCH + 5% LAUNCH DISCOUNT</p>
-  </div>
-  <div class="email-form">
-    <input type="email" class="email-input" placeholder="your@email.com">
-    <button class="email-submit" onclick="handleEmail(this)">Notify Me</button>
+    <h2>Contact Us</h2>
+    <p>For enquiries about our acoustic panels, please email us at: codaacoustics@gmail.com</p>
   </div>
 </div>
 
@@ -1549,21 +1429,19 @@
       <p class="footer-tagline">Precision fibreglass acoustic panels designed and shipped from Australia. Built for professionals, accessible to all.</p>
     </div>
     <div class="footer-col">
-      <h5>Products</h5>
+      <h5>Company</h5>
       <ul>
-        <li><a href="#">Standard Panel 1200×600</a></li>
-        <li><a href="#">Mid Panel 900×600</a></li>
-        <li><a href="#">Square Panel 600×600</a></li>
-        <li><a href="#">Bulk Orders</a></li>
+        <li><a href="#homepage">Homepage</a></li>
+        <li><a href="#applications">Applications</a></li>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Company</h5>
+      <h5>Contact</h5>
       <ul>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Journal</a></li>
-        <li><a href="#">Installation Guide</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="mailto:codaacoustics@gmail.com">codaacoustics@gmail.com</a></li>
+        <li><a href="#contact">Contact Form</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -1675,11 +1553,7 @@
     showToast('Checkout integration coming soon — your pre-order is noted!');
   }
 
-  function handleEmail(btn) {
-    btn.textContent = 'Subscribed ✓';
-    btn.style.background = '#9E7D45';
-    showToast('You\'re on the list. We\'ll notify you first.');
-  }
+
 
   // ── TOAST ──
   function showToast(msg) {
