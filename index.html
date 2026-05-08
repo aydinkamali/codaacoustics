@@ -189,6 +189,13 @@
     .form-submit{width:100%;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;background:var(--accent);color:var(--charcoal);border:none;padding:1.1rem;cursor:pointer;font-weight:400;transition:background 0.2s,transform 0.15s;margin-top:0.5rem}
     .form-submit:hover{background:var(--accent-dark);color:var(--cream);transform:translateY(-1px)}
     .form-success{display:none;text-align:center;padding:2rem;color:var(--accent);font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-style:italic}
+    .thankyou-popup{position:fixed;inset:0;background:rgba(26,26,24,0.82);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity 0.25s ease;z-index:300}
+    .thankyou-popup.visible{opacity:1;pointer-events:auto}
+    .thankyou-card{background:var(--cream);color:var(--charcoal);max-width:420px;width:100%;padding:2rem;border-radius:1rem;box-shadow:0 32px 80px rgba(0,0,0,0.18);text-align:center}
+    .thankyou-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;margin-bottom:0.75rem;line-height:1.1}
+    .thankyou-copy{font-family:'DM Mono',monospace;font-size:0.95rem;line-height:1.75;color:var(--mid);margin-bottom:1.5rem}
+    .thankyou-close{font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:0.16em;text-transform:uppercase;background:var(--charcoal);color:var(--cream);border:none;padding:0.9rem 1.5rem;border-radius:999px;cursor:pointer;transition:background 0.2s}
+    .thankyou-close:hover{background:var(--accent-dark)}
 
     /* FOOTER */
     footer{background:var(--charcoal);padding:4rem 4rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
@@ -428,16 +435,17 @@
   <div class="cta-right">
     <div class="contact-form" id="contact-form-wrap">
       <h3>Send an Enquiry</h3>
-      <div id="form-body">
-        <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" id="f-fname" placeholder="Jane"></div>
-          <div class="form-group"><label>Last Name</label><input type="text" id="f-lname" placeholder="Smith"></div>
-        </div>
-        <div class="form-group"><label>Email Address</label><input type="email" id="f-email" placeholder="jane@example.com"></div>
-        <div class="form-group"><label>Phone (optional)</label><input type="tel" id="f-phone" placeholder="+61 4XX XXX XXX"></div>
+      <form id="contact-form" action="https://formspree.io/f/xkoyvlnr" method="POST" onsubmit="handleContactSubmit(event)">
+        <div id="form-body">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" id="f-fname" name="first_name" placeholder="Jane" data-fs-field></div>
+            <div class="form-group"><label>Last Name</label><input type="text" id="f-lname" name="last_name" placeholder="Smith" data-fs-field></div>
+          </div>
+        <div class="form-group"><label>Email Address</label><input type="email" id="f-email" name="email" placeholder="jane@example.com" data-fs-field required></div>
+        <div class="form-group"><label>Phone (optional)</label><input type="tel" id="f-phone" name="phone" placeholder="+61 4XX XXX XXX" data-fs-field></div>
         <div class="form-group">
           <label>I'm interested in</label>
-          <select id="f-interest">
+          <select id="f-interest" name="interest" data-fs-field>
             <option value="">Select a product&#8230;</option>
             <option>Standard Panel 1200&#215;600mm</option>
             <option>Mid Panel 900&#215;600mm</option>
@@ -447,13 +455,23 @@
             <option>General enquiry</option>
           </select>
         </div>
-        <div class="form-group"><label>Message</label><textarea id="f-message" placeholder="Tell us about your space, how many panels you're thinking, any questions&#8230;"></textarea></div>
-        <button class="form-submit" onclick="submitForm()">Send Enquiry &#8594;</button>
+        <div class="form-group"><label>Message</label><textarea id="f-message" name="message" placeholder="Tell us about your space, how many panels you're thinking, any questions&#8230;" data-fs-field required></textarea></div>
+        <input type="hidden" name="_subject" value="CODA Acoustics Enquiry">
+        <button type="submit" class="form-submit">Send Enquiry →</button>
       </div>
       <div class="form-success" id="form-success">
-        <p>&#10003; Enquiry sent.</p>
-        <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);font-family:'DM Mono',monospace;font-style:normal;margin-top:0.75rem;">We'll be in touch within 1&#8211;2 business days.</p>
+        <p>✓ Enquiry sent.</p>
+        <p style="font-size:0.9rem;color:rgba(255,255,255,0.5);font-family:'DM Mono',monospace;font-style:normal;margin-top:0.75rem;">We'll be in touch within 1–2 business days.</p>
       </div>
+      <div class="thankyou-popup" id="thankyou-popup" aria-hidden="true">
+        <div class="thankyou-card">
+          <div class="thankyou-title">Thank you!</div>
+          <div class="thankyou-copy">Your enquiry has been sent successfully. We’ll get back to you within 1–2 business days.</div>
+          <button type="button" class="thankyou-close" id="thankyou-close">Close</button>
+        </div>
+      </div>
+      <div data-fs-error style="display:none;color:#f4a261;font-family:'DM Mono',monospace;font-size:0.9rem;margin-top:1rem;"></div>
+      </form>
     </div>
   </div>
 </div>
@@ -516,44 +534,47 @@
   }, { threshold: 0.1 });
   revealEls.forEach(el => observer.observe(el));
 
-  function submitForm() {
-    const fname    = document.getElementById('f-fname').value.trim();
-    const lname    = document.getElementById('f-lname').value.trim();
-    const email    = document.getElementById('f-email').value.trim();
-    const phone    = document.getElementById('f-phone').value.trim();
-    const interest = document.getElementById('f-interest').value;
-    const message  = document.getElementById('f-message').value.trim();
+  function handleContactSubmit(event) {
+    event.preventDefault();
+    const contactForm = document.getElementById('contact-form');
+    const thankyouPopup = document.getElementById('thankyou-popup');
+    const submitButton = contactForm.querySelector('button[type="submit"]');
+    const formData = new FormData(contactForm);
+    const email = formData.get('email')?.toString().trim();
+    const message = formData.get('message')?.toString().trim();
 
-    if (!fname || !email || !message) { alert('Please fill in your name, email, and message.'); return; }
-    if (!email.includes('@')) { alert('Please enter a valid email address.'); return; }
+    if (!email || !message) {
+      alert('Please provide your email and a message.');
+      return;
+    }
 
-    // Formspree — update YOUR_FORM_ID with your actual Formspree form ID
-    fetch('https://formspree.io/f/YOUR_FORM_ID', {
-      method:'POST',
-      headers:{'Content-Type':'application/json','Accept':'application/json'},
-      body: JSON.stringify({
-        name: fname + ' ' + lname,
-        email: email,
-        phone: phone || 'Not provided',
-        interest: interest || 'General enquiry',
-        message: message
-      })
-    }).then(r => {
-      if(r.ok) {
-        showSuccess();
+    submitButton.disabled = true;
+    fetch(contactForm.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: formData
+    }).then(response => {
+      submitButton.disabled = false;
+      if (response.ok) {
+        contactForm.reset();
+        thankyouPopup.classList.add('visible');
+        setTimeout(() => thankyouPopup?.classList.remove('visible'), 5000);
       } else {
-        alert('Something went wrong. Please try again or email us at codaacousticpanels@gmail.com');
+        return response.json().then(data => {
+          const errorMessage = data?.errors?.map(e => e?.message).join(', ') || 'Something went wrong. Please email codaacousticpanels@gmail.com';
+          alert(errorMessage);
+        });
       }
-    }).catch(err => {
-      alert('Error sending form. Please email us at codaacoustics@gmail.com');
-      console.error(err);
+    }).catch(() => {
+      submitButton.disabled = false;
+      alert('Unable to send right now. Please email codaacousticpanels@gmail.com');
     });
   }
-
-  function showSuccess() {
-    document.getElementById('form-body').style.display = 'none';
-    document.getElementById('form-success').style.display = 'block';
-  }
+  document.addEventListener('DOMContentLoaded', () => {
+    const closeButton = document.getElementById('thankyou-close');
+    const thankyouPopup = document.getElementById('thankyou-popup');
+    closeButton?.addEventListener('click', () => thankyouPopup?.classList.remove('visible'));
+  });
 </script>
 </body>
 </html>
