@@ -15,7 +15,7 @@
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     :root{
-      --cream:#F5F2EC;--warm-white:#FAFAF7;--charcoal:#1A1A18;
+      --cream:#F5F2EC;--warm-white:#FBF2EA;--charcoal:#1A1A18;
       --mid:#5A5A55;--light:#A8A89E;--accent:#C8A96E;--accent-dark:#9E7D45;
       --border:rgba(26,26,24,0.1);--border-strong:rgba(26,26,24,0.2);
     }
@@ -223,8 +223,8 @@
     /* RESPONSIVE */
     @media(max-width:1100px){.product-grid{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:1024px){
-      nav{padding:0 2rem}.nav-links{display:none}
-      .hero{grid-template-columns:1fr;min-height:auto}.hero-right{min-height:500px}
+      nav{padding:0 1.5rem}.nav-links{display:none}
+      .hero{padding:4rem 2rem}
       section,.about,.cta-strip{padding:5rem 2rem}
       .about-inner{grid-template-columns:1fr;gap:3rem}
       .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
@@ -232,10 +232,44 @@
       .steps{grid-template-columns:1fr 1fr}
       .footer-top{grid-template-columns:1fr 1fr}
       .stats-bar{grid-template-columns:repeat(3,1fr)}
-      .promo-banner{flex-direction:column;align-items:flex-start}
+      .promo-banner{flex-direction:column;align-items:center;text-align:center;padding:2.5rem 1.5rem}
+      .promo-left{justify-content:center}
+      .promo-tiers{justify-content:center;flex-wrap:wrap}
+      .promo-tier{flex:1 1 130px;min-width:120px}
+      .cta-strip{padding:3.5rem 1.5rem;gap:2rem}
+      .cta-left{width:100%;max-width:100%}
+      .cta-right{width:100%;max-width:100%}
       .contact-form{width:100%}
     }
-    @media(max-width:600px){.product-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}.stats-bar{grid-template-columns:1fr 1fr}}
+    @media(max-width:768px){
+      .hero{padding:4rem 1.25rem}
+      .hero-sub{max-width:100%}
+      .btn-primary,.btn-ghost{font-size:0.75rem;padding:0.9rem 1.6rem}
+      .section-title{font-size:2.2rem}
+      .promo-tier{min-width:100px;padding:0.9rem 1rem}
+      .cta-strip{padding:3rem 1rem}
+      .cta-sub{font-size:0.95rem;line-height:1.8}
+      .contact-form{padding:2rem}
+      .form-row{grid-template-columns:1fr}
+      .form-group{margin-bottom:0.95rem}
+    }
+    @media(max-width:600px){
+      .product-grid{grid-template-columns:1fr}
+      .form-row{grid-template-columns:1fr}
+      .stats-bar{grid-template-columns:1fr 1fr}
+      .cta-strip{padding:2rem 1rem}
+      .hero{padding:3rem 1rem}
+      .hero-eyebrow{font-size:0.65rem}
+      .hero-title{font-size:2.8rem}
+      .hero-sub{font-size:0.95rem}
+      .nav-cta{padding:0.55rem 1.1rem}
+      .promo-banner{padding:2rem 1rem;gap:1rem}
+      .promo-text h3{font-size:1.3rem}
+      .promo-tier{font-size:0.85rem;padding:0.85rem 1rem}
+      .contact-form{padding:1.75rem}
+      .thankyou-card{padding:1.75rem}
+    }
+    #contact, #about, #products, #installation, #homepage { scroll-margin-top: 92px; }
   </style>
 </head>
 <body>
@@ -296,10 +330,10 @@
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-left">
-      <p class="section-eyebrow">Made in Brisbane</p>
-      <h2 class="section-title" style="color:var(--cream);">Refined acoustic panels<br>for premium spaces</h2>
+      <p class="section-eyebrow">About CODA</p>
+      <h2 class="section-title" style="color:var(--cream);">Aesthetic and affordable acoustic treatment<br>for any space</h2>
       <div class="about-body">
-        <p>CODA Acoustics is a Brisbane-based acoustic small business, pioneering affordable high-density acoustic solutions for studios, commercial interiors and luxury residential spaces. We focus on clarity, finish and material performance.</p>
+        <p>CODA Acoustics is a Brisbane-based small business, pioneering affordable high-density acoustic solutions for studios, commercial interiors and luxury residential spaces. We focus on clarity, finish and material performance.</p>
         <p>With full customisability to suit your needs, the result is acoustic control that feels elegant, composed and effortless.</p>
       </div>
     </div>
@@ -319,7 +353,7 @@
       <p class="section-eyebrow">Panel Sizes</p>
       <h2 class="section-title">Three premium formats.<br>One high-performance core.</h2>
     </div>
-    <p class="products-intro">Choose the size that fits your room: standard, mid, or square panels, all with a 25mm fibreglass core and NRC 0.95. Enquire for additional features or specific applications.</p>
+    <p class="products-intro">Choose the size that fits your room: standard, mid, or square panels, all with a 25mm fibreglass core and NRC 0.95. Enquire for additional features or specific applications. Wall mounts sold separately</p>
   </div>
   <div class="product-grid">
 
@@ -381,38 +415,6 @@
 </div>
 
 <!-- GALLERY -->
-<section class="gallery" id="applications">
-  <div class="gallery-header reveal">
-    <div>
-      <p class="section-eyebrow">Applications</p>
-      <h2 class="section-title">How They're Used</h2>
-    </div>
-    <p class="gallery-sub">From professional recording environments to residential living spaces &#8212; CODA&#8482; panels perform wherever sound matters.</p>
-  </div>
-  <div class="gallery-grid">
-    <div class="gallery-item large">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" class="gallery-img">
-      <div class="gallery-overlay"><h4>Product Detail</h4><p>Fabric Face &#183; Fibreglass Core &#183; 25mm</p></div>
-    </div>
-    <div class="gallery-item">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" class="gallery-img">
-      <div class="gallery-overlay"><h4>Single Panel</h4><p>1200 &#215; 600mm &#183; Wall Mounted</p></div>
-    </div>
-    <div class="gallery-item">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" class="gallery-img">
-      <div class="gallery-overlay"><h4>Panel Pair</h4><p>Standard Format &#183; Side by Side</p></div>
-    </div>
-    <div class="gallery-item">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" class="gallery-img">
-      <div class="gallery-overlay"><h4>Installed on Wall</h4><p>Clean Flush Mount &#183; No Frame</p></div>
-    </div>
-    <div class="gallery-item">
-      <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" alt="" class="gallery-img">
-      <div class="gallery-overlay"><h4>Panel Range</h4><p>Multiple Sizes &#183; Same Core</p></div>
-    </div>
-  </div>
-</section>
-
 <!-- HOW IT WORKS -->
 <section class="how-it-works" id="installation">
   <p class="section-eyebrow reveal">Process</p>
@@ -496,7 +498,6 @@
       <ul>
         <li><a href="#homepage">Homepage</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="#applications">Applications</a></li>
         <li><a href="#installation">Installation</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
