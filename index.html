@@ -210,6 +210,16 @@
     .footer-col a{font-size:0.875rem;color:rgba(255,255,255,0.5);text-decoration:none;transition:color 0.2s}
     .footer-col a:hover{color:var(--cream)}
     .footer-bottom{border-top:1px solid rgba(255,255,255,0.06);padding-top:2rem;display:flex;justify-content:space-between;align-items:center}
+
+    /* SHIPPING POLICY MODAL */
+    .shipping-modal{display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;align-items:center;justify-content:center;backdrop-filter:blur(4px)}
+    .shipping-modal-overlay{position:absolute;inset:0;background:rgba(26,26,24,0.4)}
+    .shipping-modal-card{position:relative;background:var(--cream);border:1px solid var(--border);padding:2.5rem;border-radius:6px;max-width:420px;box-shadow:0 20px 60px rgba(26,26,24,0.2);animation:modalSlideUp 0.3s ease}
+    .shipping-modal-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:300;color:var(--charcoal);margin-bottom:1rem;letter-spacing:0.01em}
+    .shipping-modal-text{font-size:0.95rem;color:var(--mid);line-height:1.7;margin-bottom:2rem}
+    .shipping-modal-close{position:absolute;top:1.25rem;right:1.25rem;background:none;border:none;font-size:1.8rem;color:var(--mid);cursor:pointer;width:2.5rem;height:2.5rem;display:flex;align-items:center;justify-content:center;transition:color 0.2s}
+    .shipping-modal-close:hover{color:var(--charcoal)}
+    @keyframes modalSlideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
     .footer-copy{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:0.08em;color:rgba(255,255,255,0.25)}
 
     /* SCROLL REVEAL */
@@ -333,12 +343,12 @@
       <p class="section-eyebrow">About CODA</p>
       <h2 class="section-title" style="color:var(--cream);">Aesthetic and affordable acoustic treatment<br>for any space</h2>
       <div class="about-body">
-        <p>CODA Acoustics is a Brisbane-based small business, pioneering affordable high-density acoustic solutions for studios, commercial interiors and luxury residential spaces. We focus on clarity, finish and material performance.</p>
-        <p>With full customisability to suit your needs, the result is acoustic control that feels elegant, composed and effortless.</p>
+        <p>CODA Acoustics is based in Brisbane, Australia, pioneering affordable high-density acoustic solutions for studios, commercial interiors and luxury residential spaces. We focus on clarity, finish and material performance.</p>
+        <p>With a range of customisability to suit your needs, the result is acoustic control that feels elegant, composed and effortless.</p>
       </div>
     </div>
     <div class="about-right">
-      <div class="about-fact"><div class="about-fact-label">Brisbane Based</div><div class="about-fact-value">Australian Design</div><div class="about-fact-sub">Local production, fast support, quality control.</div></div>
+      <div class="about-fact"><div class="about-fact-label">Brisbane Based</div><div class="about-fact-value">Australian Design</div><div class="about-fact-sub">Local distribution, fast support, quality control.</div></div>
       <div class="about-fact"><div class="about-fact-label">Density</div><div class="about-fact-value">96 kg/m&#179;</div><div class="about-fact-sub">High-density fibreglass for deeper absorption.</div></div>
       <div class="about-fact"><div class="about-fact-label">Thickness</div><div class="about-fact-value">25mm</div><div class="about-fact-sub">Optimised for walls, ceilings and feature arrangements.</div></div>
       <div class="about-fact"><div class="about-fact-label">Fire Rating</div><div class="about-fact-value">A-Grade</div><div class="about-fact-sub">Safe for commercial and residential interiors.</div></div>
@@ -457,6 +467,16 @@
             <option>General enquiry</option>
           </select>
         </div>
+        <div class="form-group">
+          <label>How did you hear about us?</label>
+          <select id="f-source" name="source" data-fs-field>
+            <option value="">Select an option&#8230;</option>
+            <option>Google</option>
+            <option>Facebook</option>
+            <option>Instagram</option>
+            <option>Word of mouth</option>
+          </select>
+        </div>
         <div class="form-group"><label>Message</label><textarea id="f-message" name="message" placeholder="Tell us about your space, how many panels you're thinking, any questions&#8230;" data-fs-field required></textarea></div>
         <input type="hidden" name="_subject" value="CODA Acoustics Enquiry">
         <button type="submit" class="form-submit">Send Enquiry →</button>
@@ -514,7 +534,7 @@
       <ul>
         <li><a href="#">Privacy Policy</a></li>
         <li><a href="#">Terms of Sale</a></li>
-        <li><a href="#">Shipping Policy</a></li>
+        <li><a href="#" id="shipping-policy-link">Shipping Policy</a></li>
         <li><a href="#">Returns</a></li>
       </ul>
     </div>
@@ -525,9 +545,42 @@
   </div>
 </footer>
 
+<!-- SHIPPING POLICY MODAL -->
+<div class="shipping-modal" id="shipping-modal" aria-hidden="true">
+  <div class="shipping-modal-overlay"></div>
+  <div class="shipping-modal-card">
+    <button type="button" class="shipping-modal-close" id="shipping-modal-close" aria-label="Close">×</button>
+    <h3 class="shipping-modal-title">Shipping Policy</h3>
+    <p class="shipping-modal-text">Local pickup only - Shipping coming soon!</p>
+  </div>
+</div>
+
 <script>
   const nav = document.getElementById('main-nav');
   window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 40); });
+
+  // Shipping Policy Modal
+  const shippingLink = document.getElementById('shipping-policy-link');
+  const shippingModal = document.getElementById('shipping-modal');
+  const shippingModalClose = document.getElementById('shipping-modal-close');
+
+  shippingLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    shippingModal.setAttribute('aria-hidden', 'false');
+    shippingModal.style.display = 'flex';
+  });
+
+  shippingModalClose.addEventListener('click', () => {
+    shippingModal.setAttribute('aria-hidden', 'true');
+    shippingModal.style.display = 'none';
+  });
+
+  shippingModal.addEventListener('click', (e) => {
+    if (e.target === shippingModal) {
+      shippingModal.setAttribute('aria-hidden', 'true');
+      shippingModal.style.display = 'none';
+    }
+  });
 
   const revealEls = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver(entries => {
